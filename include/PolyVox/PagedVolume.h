@@ -83,6 +83,8 @@ namespace PolyVox
 			void changeLinearOrderingToMorton(void);
 			void changeMortonOrderingToLinear(void);
 
+			FCriticalSection m_mutex;
+
 		private:
 			/// Private copy constructor to prevent accisdental copying
 			Chunk(const Chunk& /*rhs*/) {};
@@ -107,6 +109,7 @@ namespace PolyVox
 
 			// Note: Do we really need to store this position here as well as in the block maps?
 			Vector3DInt32 m_v3dChunkSpacePosition;
+
 		};
 
 		/**
@@ -227,6 +230,8 @@ namespace PolyVox
 
 		/// Calculates approximatly how many bytes of memory the volume is currently using.
 		uint32_t calculateSizeInBytes(void);
+
+		FCriticalSection Mutex;
 
 	protected:
 		/// Copy constructor
