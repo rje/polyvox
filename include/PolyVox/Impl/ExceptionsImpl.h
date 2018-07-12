@@ -94,7 +94,7 @@
 				ss << "    File:    " << file; \
 				ss << "    Message: " << e.what(); \
 				ss << "\n"; \
-				PolyVox::Impl::getLoggerInstance()->logFatalMessage(ss.str()); \
+				getLoggerInstance()->logFatalMessage(ss.str()); \
 				POLYVOX_HALT(); \
 		}
 
@@ -127,7 +127,7 @@
 			{ \
 				std::stringstream ss; \
 				ss << message; \
-				PolyVox::Impl::getLoggerInstance()->logErrorMessage(ss.str()); \
+				getLoggerInstance()->logErrorMessage(ss.str()); \
 				type except = (type)(ss.str()); \
 				getThrowHandler()((except), __FILE__, __LINE__); \
 			} \
@@ -144,7 +144,7 @@
 		{ \
 			std::stringstream ss; \
 			ss << message; \
-			PolyVox::Impl::getLoggerInstance()->logErrorMessage(ss.str()); \
+			getLoggerInstance()->logErrorMessage(ss.str()); \
 			type except = (type)(ss.str()); \
 			getThrowHandler()((except), __FILE__, __LINE__); \
 		} while(0) \
